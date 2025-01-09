@@ -14,18 +14,14 @@ class PriorityQueueNode<T> {
 
 class PriorityQueue<T> {
     private PriorityQueueNode<T> head;
-    private PriorityQueueNode<T> tail;
-
     public PriorityQueue() {
         head = null;
-        tail = null;
     }
 
     public void insert(T data, int priority) {
         PriorityQueueNode<T> newNode = new PriorityQueueNode<>(data, priority);
         if (head == null) {
             head = newNode;
-            tail = newNode;
         } else if (priority < head.priority) {
             newNode.next = head;
             head.prev = newNode;
@@ -41,7 +37,6 @@ class PriorityQueue<T> {
             if (current.next != null) {
                 current.next.prev = newNode;
             } else {
-                tail = newNode;
             }
 
             current.next = newNode;
@@ -57,7 +52,6 @@ class PriorityQueue<T> {
         if (head != null) {
             head.prev = null;
         } else {
-            tail = null;
         }
 
         return data;
