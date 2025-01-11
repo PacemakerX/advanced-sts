@@ -1,29 +1,27 @@
 package m8;
 
-import java.util.Stack;
 import java.util.Arrays;
 
-public class  stockSpan{
+public class stockSpanI {
     public int[] calculateSpan(int[] stockPrices) {
         int n = stockPrices.length;
         int[] span = new int[n];
-        Stack<Integer> stack = new Stack<>();
-        span[0] = 1;
-        stack.push(0);
+        span[0] = 1; // The span of the first day is always 1.
+
         for (int i = 1; i < n; i++) {
-            while (!stack.isEmpty() && stockPrices[i] >= stockPrices[stack.peek()]) {
-                stack.pop();
+            span[i] = 1; // Initialize the span for the current day.
+            int j = i - 1;
+            while (j >= 0 && stockPrices[i] >= stockPrices[j]) {
+                span[i]++;
+                j--;
             }
-            span[i] = stack.isEmpty() ? i + 1 : i - stack.peek();
-            // Push the current index onto the stack.
-            stack.push(i);
         }
 
         return span;
     }
 
     public static void main(String[] args) {
-        stockSpan calculator = new stockSpan();
+        stockSpanI calculator = new stockSpanI();
         int[] stockPrices = { 100, 80, 60, 70, 60, 75, 85 };
         int[] spans = calculator.calculateSpan(stockPrices);
 

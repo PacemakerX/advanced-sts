@@ -2,7 +2,7 @@ package m6;
 
 import java.util.*;
 
-public class CelebrityProblem {
+public class CelebrityProblemII {
     public static int findCelebrity(int[][] mat) {
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < mat.length; i++) {

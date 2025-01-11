@@ -1,4 +1,4 @@
-package material.m9;
+package m9;
 
 class PriorityQueueNode<T> {
     T data;
@@ -14,6 +14,7 @@ class PriorityQueueNode<T> {
 
 class PriorityQueue<T> {
     private PriorityQueueNode<T> head;
+
     public PriorityQueue() {
         head = null;
     }

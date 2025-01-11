@@ -2,7 +2,7 @@ package m7;
 
 import java.util.Stack;
 
-public class Main {
+public class iterativeTowerOfHanoi {
     static void towerOfHanoi(int numDisks, char source, char auxiliary, char destination) {
         // Create three stacks to represent the three rods
         Stack<Integer> sourceStack = new Stack<>();
